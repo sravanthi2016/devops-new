@@ -14,13 +14,10 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-- task: Maven@3
+- task: PowerShell@2
   inputs:
-    mavenPomFile: 'pom.https://github.com/Sagar1047/javacode/find/main'
-    publishJUnitResults: true
-    testResultsFiles: 
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
