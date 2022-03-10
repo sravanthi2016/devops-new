@@ -8,6 +8,12 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+steps:
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.https://github.com/Sagar1047/javacode/find/main'
@@ -18,10 +24,3 @@ pool:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-
-steps:
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
