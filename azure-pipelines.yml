@@ -27,14 +27,15 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    appType: 'webApp'
-    WebAppName: 
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Devopsdeployments'
+    appType: 'webApp'
+    WebAppName: 'devops'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
