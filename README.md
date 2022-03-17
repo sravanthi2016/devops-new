@@ -5,11 +5,11 @@ Sample Java Programs
 
 This repository contains some sample programs. All are Maven projects and can be run directly using "java -jar"
 
-## How to build
+## How to build - to maven file
 
 Run `mvn clean install` to build all sample programs
 
-## License
+## License - i dont want......
 
 Copyright (C) 2015 M. Isuru Tharanga Chrishantha Perera
 
